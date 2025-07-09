@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_workflow_rule,access.workflow.rule,model_workflow_rule,smart_workflow_automation_engine.group_smart_workflow_manager,1,1,1,1
+access_workflow_queue,access.workflow.queue,model_workflow_queue,smart_workflow_automation_engine.group_smart_workflow_manager,1,1,1,1
+access_workflow_log,access.workflow.log,model_workflow_log,smart_workflow_automation_engine.group_smart_workflow_manager,1,1,1,1
+access_workflow_action,access.workflow.action,model_workflow_action,smart_workflow_automation_engine.group_smart_workflow_manager,1,1,1,1

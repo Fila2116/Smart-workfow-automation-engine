@@ -1,0 +1,8 @@
+<odoo>
+
+    <record id="group_smart_workflow_manager" model="res.groups">
+        <field name="name">Smart WorkFlow Manager</field>
+        <field name="category_id" ref="base.module_category_tools"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,51 @@
+<odoo>
+   <record id = "view_workflow_rule_tree" model="ir.ui.view">
+        <field name="name">workflow.rule.tree</field>
+        <field name="model">workflow.rule</field>
+        <field name="arch" type="xml">
+           <tree string="Workflow">
+               <field name="name" />
+               <field name="model_id" />
+               <field name="trigger_type" />
+               <field name="execution_timing" />
+               <field name="active" />
+           </tree>
+        </field>
+   </record>
+   <record id="view_workflow_rule_form" model="ir.ui.view">
+        <field name="name">workflow.rule.form</field>
+        <field name="model">workflow.rule</field>
+        <field name="arch" type="xml">
+            <form string="workflow">
+               <sheet>
+                  <group>
+                     <field name="name" />
+                     <field name="model_id" />
+                     <field name="trigger_type" />
+                  </group>
+                  <group>
+                     <field name="condition_domain" />
+                     <field name="execution_timing" />
+                     <field name="active" />
+                  </group>
+                  <notebook>
+                    <page string = "Actions">
+                      <field name="action_ids">
+                         <tree editable = "bottom" >
+                             <field name="name" />
+                             <field name="action_type" />
+                             <field name="sequence" />
+                         </tree>
+                      </field>
+                    </page>
+                  </notebook>
+               </sheet>
+            </form>
+        </field>
+   </record>
+   <record id="action_workflow_rule" model="ir.actions.act_window">
+       <field name="name">WorkFlow Rules</field>
+       <field name="res_model">workflow.rule</field>
+       <field name="view_mode">tree,form</field>
+   </record>
+</odoo>

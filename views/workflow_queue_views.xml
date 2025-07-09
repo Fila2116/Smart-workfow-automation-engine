@@ -1,0 +1,40 @@
+<odoo>
+   <record id="view_workflow_quee_tree" model="ir.ui.view">
+      <field name="name">Worflow.queue.tree</field>
+      <field name="model">workflow.queue</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="rule_id" />
+              <field name="action_id" />
+              <field name="model_name" />
+              <field name="res_id" />
+              <field name="state" />
+          </tree>
+      </field>
+   </record>
+
+   <record id="view_workflow_queue_form"  model="ir.ui.view" >
+      <field name="name">workflow.queue.form</field>
+      <field name="model" >workflow.queue</field>
+      <field name="arch" type="xml">
+         <form >
+            <sheet>
+               <group>
+                  <field name="rule_id" />
+                  <field name="model_name" />
+                  <field name="res_id" />
+               </group>
+               <group>
+                  <field name="state" />
+                  <field name="error_message" />
+               </group>
+            </sheet>
+         </form>
+      </field>
+   </record>
+   <record id="action_workflow_queue" model="ir.actions.act_window">
+        <field name="name">WorkFlow Queue</field>
+        <field name="res_model">workflow.queue</field>
+        <field name="view_mode">tree,form</field>
+   </record>
+</odoo>

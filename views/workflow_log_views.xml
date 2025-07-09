@@ -1,0 +1,44 @@
+<odoo>
+    <record id="view_workflow_log_tree" model="ir.ui.view">
+        <field name="name">workflow.log.tree</field>
+        <field name="model">workflow.log</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="timestamp"/>
+                <field name="rule_id"/>
+                <field name="action_id"/>
+                <field name="model_name"/>
+                <field name="res_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_workflow_log_form" model="ir.ui.view">
+        <field name="name">workflow.log.form</field>
+        <field name="model">workflow.log</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="timestamp"/>
+                        <field name="rule_id"/>
+                        <field name="action_id"/>
+                        <field name="model_name"/>
+                    </group>
+                    <group>
+                        <field name="res_id"/>
+                        <field name="state"/>
+                        <field name="message"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_workflow_log" model="ir.actions.act_window">
+        <field name="name">Workflow Logs</field>
+        <field name="res_model">workflow.log</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
