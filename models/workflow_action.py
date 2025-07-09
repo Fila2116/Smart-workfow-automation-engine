@@ -34,4 +34,10 @@ class WorkFlowAction(models.Model):
                 user_id = params.get('user_id')
                 if user_id:
                     target_record.write({'user_id': 'user_id'})
+            log_vals['state'] = 'success'
+            log_vals['message'] = 'Action executed successfully.'
+        except Exception as e:
+            log_vals['state' ]= 'error'
+            log_vals['message'] =str(e)
+        self.env['workflow.log'].create(log_vals) 
             

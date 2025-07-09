@@ -16,7 +16,7 @@ class WorkFlowRule(models.Model):
     ],string="Trigger Type",tracking=True,required=True)
     condition_domain = fields.Text(string="Condition domain")
     execution_timing = fields.Selection([
-        ("immediate","Immedtiate"),
+        ("immediate","Immediate"),
         ("scheduled","Scheduled"),
     ],string="Execution Timing",tracking=True,required=True)
     active =fields.Boolean(string="Active",default=True)

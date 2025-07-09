@@ -14,7 +14,7 @@
         'views/workflow_log_views.xml',
         'views/workflow_queue_views.xml',
         'views/menu.xml',
-        # 'data/workflow_cron.xml',
+        'data/workflow_cron.xml',
         
     ],
     'installable':True,

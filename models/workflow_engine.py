@@ -8,7 +8,7 @@ class WorkFlowEngineMixin(models.AbstractModel):
 
     def _run_workflow_triggers(self,operation):
         model_name=self.name
-        records = self. if isinstance(self,models.Model) else self.browse([])
+        records = self if isinstance(self,models.Model) else self.browse([])
 
         for record in records:
             rules=self.env['workflow.rule'].search([
@@ -26,7 +26,7 @@ class WorkFlowEngineMixin(models.AbstractModel):
                     continue 
 
                 for action in sorted(rule.action_ids,key=lambda a : a.sequence):
-                    if rule.execution_timing = 'immediate':
+                    if rule.execution_timing == 'immediate':
                         self.env['workflow.action'].run_action(action,record)
                     else:
                         self.env['workflow.queue'].create({

@@ -10,3 +10,16 @@ class WokflowQueue(models.Model):
     state = fields.Selection([('pending',"Pending"),
     ("done","Done"),("error","Error")],string="Status",tracking=True,required=True)
     error_message = fields.Text(string="Error message")
+
+    def run_pending_actions(self):
+        pending_jobs = self.search([('state','=','pending')],limit=100)
+        for job in pending_job:
+            try:
+                target = self.env[job.model_name].browse(job.res_id)
+                if not target.exists():
+                    raise UserError("Target record does not exist.")
+                self.env['workflow.action'].run_action(job.action_id,target)
+                job.write({'state':'done'})
+
+            except Exception as e:
+                    job.write({'state':'error','error_message':str(e)})
