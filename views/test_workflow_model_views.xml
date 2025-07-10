@@ -1,0 +1,38 @@
+<odoo>
+    <record id="view_form_test_workflow_model" model="ir.ui.view">
+        <field name="name">test.workflow.model.form</field>
+        <field name="model">test.workflow.model</field>
+        <field name="arch" type="xml">
+            <form string="Test Workflow Model">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_test_workflow_model" model="ir.ui.view">
+        <field name="name">test.workflow.model.tree</field>
+        <field name="model">test.workflow.model</field>
+        <field name="arch" type="xml">
+            <tree string="Test Workflow Model">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_test_workflow_model" model="ir.actions.act_window">
+        <field name="name">Test Workflow Model</field>
+        <field name="res_model">test.workflow.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    
+</odoo>

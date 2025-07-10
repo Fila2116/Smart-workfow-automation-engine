@@ -13,7 +13,7 @@ class WokflowQueue(models.Model):
 
     def run_pending_actions(self):
         pending_jobs = self.search([('state','=','pending')],limit=100)
-        for job in pending_job:
+        for job in pending_jobs:
             try:
                 target = self.env[job.model_name].browse(job.res_id)
                 if not target.exists():

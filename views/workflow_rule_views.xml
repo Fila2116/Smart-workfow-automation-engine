@@ -35,6 +35,7 @@
                              <field name="name" />
                              <field name="action_type" />
                              <field name="sequence" />
+                             <field name="params" />
                          </tree>
                       </field>
                     </page>

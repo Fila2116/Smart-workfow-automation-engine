@@ -31,4 +31,10 @@
         action="action_workflow_action"
         sequence="15"
     />
+    <menuitem id="menu_test_workflow_root"
+        name="Workflow Test"/>
+    <menuitem id="menu_test_workflow_model"
+     name="Test Model"
+     parent="menu_test_workflow_root" 
+     action="action_test_workflow_model"/>
 </odoo>

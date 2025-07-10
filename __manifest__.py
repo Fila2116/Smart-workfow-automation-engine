@@ -13,6 +13,7 @@
         'views/workflow_action_views.xml',
         'views/workflow_log_views.xml',
         'views/workflow_queue_views.xml',
+        'views/test_workflow_model_views.xml',
         'views/menu.xml',
         'data/workflow_cron.xml',
         

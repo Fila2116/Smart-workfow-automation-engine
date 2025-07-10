@@ -3,3 +3,4 @@ from . import workflow_action
 from . import workflow_log
 from . import workflow_queue
 from . import workflow_engine
+from . import test_model

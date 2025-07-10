@@ -43,9 +43,5 @@
     </record>
 
     
-    <menuitem id="menu_workflow_action"
-              name="Workflow Actions"
-              parent="menu_smart_workflow_root"
-              action="action_workflow_action"
-              sequence="15"/>
+    
 </odoo>
