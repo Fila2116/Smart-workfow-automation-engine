@@ -18,7 +18,7 @@ class WorkFlowAction(models.Model):
         ('update',"Update an info"),
         ('assign',"Assign Record")],string="Action Type",tracking=True,required=True,
     )
-    params = fields.Text(string="Parameters")
+    params = fields.Text(string="Parameters",widget="json_widget")
     sequence= fields.Integer(string ="Sequence",default=10)
 
     def run_action(self, action, target_record):

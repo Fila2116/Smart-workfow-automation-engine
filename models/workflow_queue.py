@@ -1,5 +1,5 @@
 from odoo import models,fields
-class WokflowQueue(models.Model):
+class WorkflowQueue(models.Model):
     _name="workflow.queue"
     _description="Workflow Queue"
 

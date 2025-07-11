@@ -1,0 +1,34 @@
+<!-- workflow_dashboard_template.xml -->
+<odoo>
+    <template id="workflow_dashboard_template" name="Workflow Dashboard">
+        <t t-call="web.layout">
+            <div class="o_control_panel"></div>
+            <div class="o_content">
+                <h1>Workflow Execution Dashboard</h1>
+                <div id="workflow_kpis" class="row mt-3">
+                    <div class="col-4">
+                        <div class="alert alert-success text-center">
+                            <h3>Total Success</h3>
+                            <p t-esc="kpi_data.success_count"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="alert alert-danger text-center">
+                            <h3>Total Errors</h3>
+                            <p t-esc="kpi_data.error_count"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="alert alert-info text-center">
+                            <h3>Total Executions</h3>
+                            <p t-esc="kpi_data.total"/>
+                        </div>
+                    </div>
+                </div>
+                <div id="workflow_chart" class="mt-5">
+                    <canvas id="log_chart"></canvas>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
