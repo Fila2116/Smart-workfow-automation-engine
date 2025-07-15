@@ -1,6 +1,6 @@
 <!-- workflow_dashboard_template.xml -->
 <odoo>
-    <template id="workflow_dashboard_template" name="Workflow Dashboard">
+    <template id="smart_workflow_automation_engine.workflow_dashboard_template" name="Workflow Dashboard">
         <t t-call="web.layout">
             <div class="o_control_panel"></div>
             <div class="o_content">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div id="workflow_chart" class="mt-5">
-                    <canvas id="log_chart"></canvas>
+                    <canvas t-ref="chart"></canvas>
                 </div>
             </div>
         </t>

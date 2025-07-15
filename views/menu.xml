@@ -38,9 +38,9 @@
      parent="menu_test_workflow_root" 
      action="action_test_workflow_model"/>
 
-     <menuitem id="menu_workflow_dashboard_menu"
+     <!-- <menuitem id="menu_workflow_dashboard_menu"
           name="Dashboard"
           parent="menu_smart_workflow_root"
           action="action_workflow_dashboard_view"
-          sequence="10"/>
+          sequence="10"/> -->
 </odoo>

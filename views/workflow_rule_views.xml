@@ -28,6 +28,11 @@
                      <field name="execution_timing" />
                      <field name="active" />
                   </group>
+                  <group invisible = "execution_timing != 'scheduled' ">
+                      <field name="interval_number" />
+                      <field name="interval_type" />
+                      <field name="next_execution" readonly="1" />
+                  </group>
                   <notebook>
                     <page string = "Actions">
                       <field name="action_ids">
