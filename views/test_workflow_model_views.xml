@@ -7,7 +7,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="user_id" />
+                        <field name="user_id" widget="res.users" />
                     </group>
                 </sheet>
                 <div class="oe_chatter">

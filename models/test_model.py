@@ -6,7 +6,7 @@ class TestWorkflowModel(models.Model):
     _description = "Test Model for Workflow"
 
     name = fields.Char(string="Name", tracking=True)
-    user_id = fields.Many2one('res.users',string = "user Id")
+    user_id = fields.Many2one('res.users',string = "user Id",default=lambda self: self.env.user,)
 
     def create(self, vals):
         records = super().create(vals)

@@ -19,6 +19,7 @@
       <field name="arch" type="xml">
          <form >
             <sheet>
+              <group>
                <group>
                   <field name="rule_id" />
                   <field name="model_name" />
@@ -28,6 +29,7 @@
                   <field name="state" />
                   <field name="error_message" />
                </group>
+             </group>
             </sheet>
          </form>
       </field>

@@ -18,6 +18,7 @@
         <field name="arch" type="xml">
             <form string="workflow">
                <sheet>
+                <group>
                   <group>
                      <field name="name" />
                      <field name="model_id" />
@@ -45,6 +46,7 @@
                       </field>
                     </page>
                   </notebook>
+                 </group>
                </sheet>
             </form>
         </field>
