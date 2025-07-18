@@ -29,8 +29,9 @@
                         
                     <group>
                         <field name="params" placeholder="e.g. {'url': 'https://your.api/hook', 'payload': {'id': 'id', 'name': 'name'}}"/>
-
                         <field name="sequence"/>
+                        <field name ="delay_number" />
+                        <field name = "delay_unit" />
                     </group>
                   </group>
                 </sheet>

@@ -1,4 +1,6 @@
 from odoo import models,fields
+from datetime import datetime
+
 class WorkflowQueue(models.Model):
     _name="workflow.queue"
     _description="Workflow Queue"
@@ -10,9 +12,11 @@ class WorkflowQueue(models.Model):
     state = fields.Selection([('pending',"Pending"),
     ("done","Done"),("error","Error")],string="Status",tracking=True,required=True)
     error_message = fields.Text(string="Error message")
+    execute_at = fields.Datetime(string="execute_at",help = "When to execute the action",defualt=fields.Datetime.now)
 
     def run_pending_actions(self):
-        pending_jobs = self.search([('state','=','pending')],limit=100)
+        now = fields.Datetime.now()
+        pending_jobs = self.search([('state','=','pending'),('scheduled_at','<=',now)],limit = 100)
         for job in pending_jobs:
             try:
                 target = self.env[job.model_name].browse(job.res_id)

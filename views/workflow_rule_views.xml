@@ -42,6 +42,8 @@
                              <field name="action_type" />
                              <field name="sequence" />
                              <field name="params" />
+                             <field name ="delay_number" />
+                             <field name = "delay_unit" />
                          </tree>
                       </field>
                     </page>
