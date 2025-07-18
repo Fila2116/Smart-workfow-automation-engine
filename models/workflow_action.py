@@ -29,7 +29,8 @@ class WorkFlowAction(models.Model):
          ('update', "Update an info"),
          ('assign', "Assign Record"),
          ('webhook', 'Call webhook'),
-         ('create_record', "Create Related Record")],
+         ('create_record', "Create Related Record"),
+         ('python','Execute python code')],
         string="Action Type", tracking=True, required=True,
     )
     params = fields.Text(string="Parameters", widget="json_widget")
@@ -165,6 +166,7 @@ class WorkFlowAction(models.Model):
                     except Exception as e:
                         _logger.error(f"Error processing field {field}: {str(e)}")
                         raise
+            
 
                 _logger.warning(f"Creating record with values: {filled_values}")
                 
@@ -182,7 +184,25 @@ class WorkFlowAction(models.Model):
                         'message': f"Failed to create record: {str(e)}"
                     })
                     raise
-
+            
+            elif action.action_type == 'python':
+                code = params.get('code','')
+                local_context = {
+                    'record': target_record,
+                    'env': self.env , 
+                    'user' : self.env.user,
+                    'log' : _logger,
+                }
+                try:
+                    exec(code, {} ,local_context)
+                    log_vals.update({
+                        'state' : 'success',
+                        'message' : f'Python code executed successfully'
+                    })
+                except Exception as e:
+                    log_vals.update({
+                        'message' : f"Python execution failed: {e}"
+                    })
         except Exception as e:
             _logger.error(f"Action execution failed: {str(e)}", exc_info=True)
             log_vals.update({

@@ -17,8 +17,10 @@
         <field name="model">workflow.rule</field>
         <field name="arch" type="xml">
             <form string="workflow">
-               <sheet>
-                 <button name = "button_trigger_manual" type="object" string="Run Manually" class="btn-primary" />
+               <header>
+                    <button name = "button_trigger_manual" type="object" string="Run Manually" class="btn-primary" />
+               </header>
+               <sheet>   
                 <group>
                   <group>
                      <field name="name" />
