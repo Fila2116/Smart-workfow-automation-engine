@@ -75,6 +75,16 @@ class WorkFlowRule(models.Model):
             
             # Schedule next execution
             rule._compute_next_execution()
+    
+    def button_trigger_manual(self):
+        if not self.model_id:
+            raise UserError("Model not specified for this rule.")
+        model = self.env[self.model_id.model]
+        domain = safe_eval(self.condition_domain or '[]')
+        records = model.search(domain)
+        for record in records:
+            for action in self.action_ids.sorted(key=lambda a: a.sequence):
+                action.run_action(action,record)
 
     @api.depends('interval_number', 'interval_type', 'execution_timing')
     def _compute_next_execution(self):

@@ -16,7 +16,7 @@ class WorkflowQueue(models.Model):
 
     def run_pending_actions(self):
         now = fields.Datetime.now()
-        pending_jobs = self.search([('state','=','pending'),('scheduled_at','<=',now)],limit = 100)
+        pending_jobs = self.search([('state','=','pending'),('execute_at','<=',now)],limit = 100)
         for job in pending_jobs:
             try:
                 target = self.env[job.model_name].browse(job.res_id)
